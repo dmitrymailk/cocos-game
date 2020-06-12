@@ -1,0 +1,274 @@
+{
+  "ver": "1.3.19",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "fab5efc1-57e1-43d6-8e5f-16e5741043be",
+  "files": [],
+  "subMetas": {
+    "6cba4": {
+      "importer": "gltf-mesh",
+      "uuid": "fab5efc1-57e1-43d6-8e5f-16e5741043be@6cba4",
+      "displayName": "",
+      "id": "6cba4",
+      "name": "Ch46.mesh",
+      "ver": "1.0.9",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "18d6f": {
+      "importer": "gltf-animation",
+      "uuid": "fab5efc1-57e1-43d6-8e5f-16e5741043be@18d6f",
+      "displayName": "",
+      "id": "18d6f",
+      "name": "mixamo.com.animation",
+      "ver": "1.0.13",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "events": [],
+        "gltfIndex": 0,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 25.33333396911621
+        },
+        "speed": 1,
+        "wrapMode": 2
+      }
+    },
+    "438fe": {
+      "importer": "gltf-skeleton",
+      "uuid": "fab5efc1-57e1-43d6-8e5f-16e5741043be@438fe",
+      "displayName": "",
+      "id": "438fe",
+      "name": "UnnamedSkeleton.skeleton",
+      "ver": "1.0.1",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0,
+        "jointsLength": 65
+      }
+    },
+    "c5cf2": {
+      "importer": "gltf-embeded-image",
+      "uuid": "fab5efc1-57e1-43d6-8e5f-16e5741043be@c5cf2",
+      "displayName": "",
+      "id": "c5cf2",
+      "name": "Ch46_1001_Normal.png.image",
+      "ver": "1.0.2",
+      "imported": true,
+      "files": [
+        ".png",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "f04ce": {
+      "importer": "gltf-embeded-image",
+      "uuid": "fab5efc1-57e1-43d6-8e5f-16e5741043be@f04ce",
+      "displayName": "",
+      "id": "f04ce",
+      "name": "ao_met_rough_Ch46_1001_Glossiness.image",
+      "ver": "1.0.2",
+      "imported": true,
+      "files": [
+        ".jpg",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 1
+      }
+    },
+    "7d4df": {
+      "importer": "gltf-embeded-image",
+      "uuid": "fab5efc1-57e1-43d6-8e5f-16e5741043be@7d4df",
+      "displayName": "",
+      "id": "7d4df",
+      "name": "Ch46_1001_Diffuse.png.image",
+      "ver": "1.0.2",
+      "imported": true,
+      "files": [
+        ".png",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 2
+      }
+    },
+    "a562b": {
+      "importer": "texture",
+      "uuid": "fab5efc1-57e1-43d6-8e5f-16e5741043be@a562b",
+      "displayName": "",
+      "id": "a562b",
+      "name": "file3.texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "fab5efc1-57e1-43d6-8e5f-16e5741043be@c5cf2"
+      }
+    },
+    "dc3f0": {
+      "importer": "texture",
+      "uuid": "fab5efc1-57e1-43d6-8e5f-16e5741043be@dc3f0",
+      "displayName": "",
+      "id": "dc3f0",
+      "name": "ao_met_rough_Ch46_1001_Glossiness.texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "fab5efc1-57e1-43d6-8e5f-16e5741043be@f04ce"
+      }
+    },
+    "4f12a": {
+      "importer": "texture",
+      "uuid": "fab5efc1-57e1-43d6-8e5f-16e5741043be@4f12a",
+      "displayName": "",
+      "id": "4f12a",
+      "name": "Ch12__mod__V01_01_Ch12_Body_Diffuse_1.texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "fab5efc1-57e1-43d6-8e5f-16e5741043be@7d4df"
+      }
+    },
+    "44d88": {
+      "importer": "gltf-material",
+      "uuid": "fab5efc1-57e1-43d6-8e5f-16e5741043be@44d88",
+      "displayName": "",
+      "id": "44d88",
+      "name": "Ch46_body.material",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "5e192": {
+      "importer": "gltf-scene",
+      "uuid": "fab5efc1-57e1-43d6-8e5f-16e5741043be@5e192",
+      "displayName": "",
+      "id": "5e192",
+      "name": "Bellydancing.prefab",
+      "ver": "1.0.11",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    }
+  },
+  "userData": {
+    "imageMetas": [
+      {
+        "name": "Ch46_1001_Normal.png",
+        "uri": "fab5efc1-57e1-43d6-8e5f-16e5741043be@c5cf2"
+      },
+      {
+        "name": "ao_met_rough_Ch46_1001_Glossiness",
+        "uri": "fab5efc1-57e1-43d6-8e5f-16e5741043be@f04ce"
+      },
+      {
+        "name": "Ch46_1001_Diffuse.png",
+        "uri": "fab5efc1-57e1-43d6-8e5f-16e5741043be@7d4df"
+      }
+    ],
+    "animationImportSettings": [
+      {
+        "name": "mixamo.com",
+        "duration": 25.33333396911621,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "mixamo.com",
+            "from": 0,
+            "to": 25.33333396911621,
+            "wrapMode": 2
+          }
+        ]
+      }
+    ],
+    "redirect": "fab5efc1-57e1-43d6-8e5f-16e5741043be@5e192",
+    "assetFinder": {
+      "meshes": [
+        "fab5efc1-57e1-43d6-8e5f-16e5741043be@6cba4"
+      ],
+      "skeletons": [
+        "fab5efc1-57e1-43d6-8e5f-16e5741043be@438fe"
+      ],
+      "textures": [
+        "fab5efc1-57e1-43d6-8e5f-16e5741043be@a562b",
+        "fab5efc1-57e1-43d6-8e5f-16e5741043be@dc3f0",
+        "fab5efc1-57e1-43d6-8e5f-16e5741043be@4f12a"
+      ],
+      "materials": [
+        "fab5efc1-57e1-43d6-8e5f-16e5741043be@44d88"
+      ],
+      "scenes": [
+        "fab5efc1-57e1-43d6-8e5f-16e5741043be@5e192"
+      ]
+    }
+  }
+}

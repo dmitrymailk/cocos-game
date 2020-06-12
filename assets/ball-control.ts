@@ -35,10 +35,10 @@ export class ballcontrol extends Component {
         if (this._key & EKey.S) {
             v3_0.z = -1;
         }
-        if (this._key & EKey.A) {
+        if (this._key & EKey.D) {
             v3_0.x = 1;
         }
-        if (this._key & EKey.D) {
+        if (this._key & EKey.A) {
             v3_0.x = -1;
         }
         if (this._key & EKey.SHIFT) {
