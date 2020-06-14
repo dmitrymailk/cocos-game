@@ -12,6 +12,7 @@ import {
   Node,
   Vec3,
   Quat,
+  AnimationComponent,
 } from "cc";
 const { ccclass, property, menu } = _decorator;
 
@@ -42,6 +43,8 @@ export class playerControl extends Component {
 
   private someVec: Vec3 = null;
 
+  private walk: Boolean = false;
+
   @property({ slide: true, range: [1, 30, 0.1] })
   public readonly scale = 2;
 
@@ -54,6 +57,7 @@ export class playerControl extends Component {
     console.log(person);
     let { x, y, z } = person;
     this.prevPos.set(person);
+    this.plaAnimation(false);
     // this.personRotation.set(0, 0, 0, 0);
     // this.person.rotate()
   }
@@ -77,7 +81,7 @@ export class playerControl extends Component {
     if (v3_0.z != 0 || v3_0.x != 0) {
       v3_0.multiplyScalar(this.shiftScale);
       this._rigidBody.applyImpulse(v3_0);
-
+      this.plaAnimation(true);
       v3_0.set(0, 0, 0);
     }
 
@@ -88,6 +92,20 @@ export class playerControl extends Component {
     this.person.eulerAngles = new Vec3(0, targetAngle, 0);
 
     this.prevPos.set(per_0);
+  }
+
+  plaAnimation(active: Boolean) {
+    let animation = this.person.getComponent(AnimationComponent);
+    let clips = animation.clips;
+
+    if (this.walk != active) {
+      this.walk = active;
+      if (this.walk) {
+        animation.play(clips[0].name);
+      } else {
+        animation.play(clips[1].name);
+      }
+    }
   }
 
   onEnable() {
@@ -123,12 +141,16 @@ export class playerControl extends Component {
   onKeyUp(event: EventKeyboard) {
     if (event.keyCode == macro.KEY.w) {
       this._key &= ~EKey.W;
+      this.plaAnimation(false);
     } else if (event.keyCode === macro.KEY.s) {
       this._key &= ~EKey.S;
+      this.plaAnimation(false);
     } else if (event.keyCode === macro.KEY.a) {
       this._key &= ~EKey.A;
+      this.plaAnimation(false);
     } else if (event.keyCode === macro.KEY.d) {
       this._key &= ~EKey.D;
+      this.plaAnimation(false);
     } else if (event.keyCode === macro.KEY.shift) {
       this._key &= ~EKey.SHIFT;
     }
@@ -154,5 +176,6 @@ export class playerControl extends Component {
 
   onTouchEnd(touch: Touch, event: EventTouch) {
     this._key = EKey.NONE;
+    this.plaAnimation(false);
   }
 }

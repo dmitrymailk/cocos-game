@@ -1,0 +1,15 @@
+{
+  "ver": "2.0.14",
+  "importer": "javascript",
+  "imported": true,
+  "uuid": "7aff025e-4a48-4caa-8d36-9aeb805181f7",
+  "files": [
+    ".js",
+    ".trans"
+  ],
+  "subMetas": {},
+  "userData": {
+    "importAsPlugin": false,
+    "moduleId": "project:///assets/scripts/cubes.js"
+  }
+}
