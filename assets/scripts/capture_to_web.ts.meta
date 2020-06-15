@@ -1,8 +1,8 @@
 {
   "ver": "2.0.14",
-  "importer": "javascript",
+  "importer": "typescript",
   "imported": true,
-  "uuid": "7aff025e-4a48-4caa-8d36-9aeb805181f7",
+  "uuid": "0c2382da-02eb-4290-b8f6-9fec321441a6",
   "files": [
     ".js",
     ".trans"
@@ -10,6 +10,6 @@
   "subMetas": {},
   "userData": {
     "importAsPlugin": false,
-    "moduleId": "project:///assets/scripts/cubes.js"
+    "moduleId": "project:///assets/scripts/capture_to_web.js"
   }
 }

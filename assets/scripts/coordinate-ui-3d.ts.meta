@@ -10,6 +10,6 @@
   "subMetas": {},
   "userData": {
     "importAsPlugin": false,
-    "moduleId": "project:///assets/coordinate-ui-3d.js"
+    "moduleId": "project:///assets/scripts/coordinate-ui-3d.js"
   }
 }
