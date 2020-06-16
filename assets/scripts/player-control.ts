@@ -13,6 +13,9 @@ import {
   Vec3,
   Quat,
   AnimationComponent,
+  Tween,
+  tween,
+  // tween,
 } from "cc";
 const { ccclass, property, menu } = _decorator;
 
@@ -51,6 +54,9 @@ export class playerControl extends Component {
   @property({ type: Node })
   public person: Node = null;
 
+  @property({ type: Number })
+  public smoothRot: Number = 1;
+
   start() {
     this._rigidBody = this.getComponent(RigidBodyComponent);
     let person = this.person.getPosition();
@@ -84,14 +90,32 @@ export class playerControl extends Component {
       this.plaAnimation(true);
       v3_0.set(0, 0, 0);
     }
+    if (this._rigidBody.isAwake) {
+      let per_0 = this.person.getWorldPosition();
+      let per_1 = this.prevPos;
+      let targetAngle =
+        (Math.atan2(per_0.x - per_1.x, per_0.z - per_1.z) * 180) / Math.PI;
 
-    let per_0 = this.person.getWorldPosition();
-    let per_1 = this.prevPos;
-    let targetAngle =
-      (Math.atan2(per_0.x - per_1.x, per_0.z - per_1.z) * 180) / Math.PI;
-    this.person.eulerAngles = new Vec3(0, targetAngle, 0);
+      let quat: Quat = new Quat();
+      math.Quat.fromEuler(quat, 0, targetAngle, 0);
+      let userRot = new Quat();
+      math.Quat.slerp(
+        userRot,
+        this.person.getRotation(),
+        quat,
+        dt * +this.smoothRot
+      );
+      console.log(this._rigidBody.isAwake);
 
-    this.prevPos.set(per_0);
+      let eurlerRot = new Vec3();
+      math.Quat.toEuler(eurlerRot, userRot);
+
+      this.person.eulerAngles = eurlerRot;
+
+      // this.person.eulerAngles = new Vec3(0, targetAngle, 0); // easy way to rotate
+
+      this.prevPos.set(per_0);
+    }
   }
 
   plaAnimation(active: Boolean) {
