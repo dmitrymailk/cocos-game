@@ -13,8 +13,7 @@ import {
   Vec3,
   Quat,
   AnimationComponent,
-  Tween,
-  tween,
+
   // tween,
 } from "cc";
 const { ccclass, property, menu } = _decorator;
@@ -60,7 +59,6 @@ export class playerControl extends Component {
   start() {
     this._rigidBody = this.getComponent(RigidBodyComponent);
     let person = this.person.getPosition();
-    console.log(person);
     let { x, y, z } = person;
     this.prevPos.set(person);
     this.plaAnimation(false);
@@ -105,7 +103,6 @@ export class playerControl extends Component {
         quat,
         dt * +this.smoothRot
       );
-      console.log(this._rigidBody.isAwake);
 
       let eurlerRot = new Vec3();
       math.Quat.toEuler(eurlerRot, userRot);
@@ -125,8 +122,12 @@ export class playerControl extends Component {
     if (this.walk != active) {
       this.walk = active;
       if (this.walk) {
+        // animation.play(clips[0].name);
+        // animation.stop();
+        animation.crossFade(clips[0].name, 3);
         animation.play(clips[0].name);
       } else {
+        // animation.crossFade(clips[1].name, 3);
         animation.play(clips[1].name);
       }
     }
