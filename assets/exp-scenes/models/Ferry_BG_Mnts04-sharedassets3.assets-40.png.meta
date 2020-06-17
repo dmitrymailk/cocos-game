@@ -1,0 +1,40 @@
+{
+  "ver": "1.0.18",
+  "importer": "image",
+  "imported": true,
+  "uuid": "cc32807d-5aea-4f35-9b2e-3258c6020896",
+  "files": [
+    ".png",
+    ".json"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "cc32807d-5aea-4f35-9b2e-3258c6020896@6c48a",
+      "displayName": "Ferry_BG_Mnts04-sharedassets3.assets-40",
+      "id": "6c48a",
+      "name": "texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "cc32807d-5aea-4f35-9b2e-3258c6020896"
+      }
+    }
+  },
+  "userData": {
+    "type": "texture",
+    "redirect": "cc32807d-5aea-4f35-9b2e-3258c6020896@6c48a"
+  }
+}

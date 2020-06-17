@@ -41,10 +41,6 @@ export class playerControl extends Component {
 
   private prevPos: Vec3 = new Vec3(0, 0, 0);
 
-  private personRotation: Quat = new Quat(0, 0, 0, 1);
-
-  private someVec: Vec3 = null;
-
   private walk: Boolean = false;
 
   @property({ slide: true, range: [1, 30, 0.1] })
@@ -56,14 +52,17 @@ export class playerControl extends Component {
   @property({ type: Number })
   public smoothRot: Number = 1;
 
+  @property({ type: Number })
+  public maxSpeed: number = 6;
+
+  @property({ type: Number })
+  public restrictionNum: number = -0.1;
+
   start() {
     this._rigidBody = this.getComponent(RigidBodyComponent);
     let person = this.person.getPosition();
-    let { x, y, z } = person;
     this.prevPos.set(person);
     this.plaAnimation(false);
-    // this.personRotation.set(0, 0, 0, 0);
-    // this.person.rotate()
   }
 
   update(dt: number) {
@@ -84,9 +83,24 @@ export class playerControl extends Component {
 
     if (v3_0.z != 0 || v3_0.x != 0) {
       v3_0.multiplyScalar(this.shiftScale);
-      this._rigidBody.applyImpulse(v3_0);
-      this.plaAnimation(true);
-      v3_0.set(0, 0, 0);
+      let velocity = new Vec3();
+      this._rigidBody.getLinearVelocity(velocity);
+      let { x, y, z } = velocity;
+
+      if (
+        Math.abs(x) < this.maxSpeed &&
+        Math.abs(y) < this.maxSpeed &&
+        Math.abs(z) < this.maxSpeed
+      ) {
+        this._rigidBody.applyImpulse(v3_0);
+        this.plaAnimation(true);
+        v3_0.set(0, 0, 0);
+      } else {
+        this._rigidBody.applyImpulse(v3_0);
+        v3_0.multiplyScalar(this.restrictionNum);
+        this._rigidBody.applyImpulse(v3_0);
+        this.plaAnimation(true);
+      }
     }
     if (this._rigidBody.isAwake) {
       let per_0 = this.person.getWorldPosition();
@@ -122,10 +136,7 @@ export class playerControl extends Component {
     if (this.walk != active) {
       this.walk = active;
       if (this.walk) {
-        // animation.play(clips[0].name);
-        // animation.stop();
-        animation.crossFade(clips[0].name, 3);
-        animation.play(clips[0].name);
+        animation.crossFade(clips[0].name, 0.3);
       } else {
         // animation.crossFade(clips[1].name, 3);
         animation.play(clips[1].name);

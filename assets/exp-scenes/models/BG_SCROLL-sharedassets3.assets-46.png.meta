@@ -1,0 +1,40 @@
+{
+  "ver": "1.0.18",
+  "importer": "image",
+  "imported": true,
+  "uuid": "ec00a46a-ad6d-4229-b268-cac3f255a6c0",
+  "files": [
+    ".png",
+    ".json"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "ec00a46a-ad6d-4229-b268-cac3f255a6c0@6c48a",
+      "displayName": "BG_SCROLL-sharedassets3.assets-46",
+      "id": "6c48a",
+      "name": "texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "ec00a46a-ad6d-4229-b268-cac3f255a6c0"
+      }
+    }
+  },
+  "userData": {
+    "type": "texture",
+    "redirect": "ec00a46a-ad6d-4229-b268-cac3f255a6c0@6c48a"
+  }
+}
