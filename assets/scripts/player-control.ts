@@ -43,11 +43,16 @@ export class playerControl extends Component {
 
   private walk: Boolean = false;
 
+  // private initialCameraPos: Vec3 = new Vec3();
+
   @property({ slide: true, range: [1, 30, 0.1] })
   public readonly scale = 2;
 
   @property({ type: Node })
   public person: Node = null;
+
+  @property({ type: Node })
+  public mainCamera: Node = null;
 
   @property({ type: Number })
   public smoothRot: Number = 1;
@@ -63,6 +68,8 @@ export class playerControl extends Component {
     let person = this.person.getPosition();
     this.prevPos.set(person);
     this.plaAnimation(false);
+
+    // this.initialCameraPos = this.mainCamera.getPosition();
   }
 
   update(dt: number) {
@@ -102,6 +109,7 @@ export class playerControl extends Component {
         this.plaAnimation(true);
       }
     }
+
     if (this._rigidBody.isAwake) {
       let per_0 = this.person.getWorldPosition();
       let per_1 = this.prevPos;
@@ -127,6 +135,15 @@ export class playerControl extends Component {
 
       this.prevPos.set(per_0);
     }
+
+    // camera following on x
+    // let y_0 = this.initialCameraPos.y;
+    // let z_0 = this.initialCameraPos.z;
+    // let x = this.person.getWorldPosition().x;
+
+    // console.log(this.person.getWorldPosition());
+
+    // this.mainCamera.setPosition(new Vec3(x, y_0, z_0));
   }
 
   plaAnimation(active: Boolean) {
