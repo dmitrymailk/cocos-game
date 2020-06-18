@@ -36,7 +36,7 @@
     "_prefab": null,
     "autoReleaseAssets": false,
     "_globals": {
-      "__id__": 865
+      "__id__": 853
     },
     "_id": "f78b101c-3662-4e8a-9680-5885dec0c2f3"
   },
@@ -18174,7 +18174,7 @@
     },
     "fileId": "278LViiANHkYQkTJ4tFIGi",
     "sync": false,
-    "_synced": true
+    "_synced": {}
   },
   {
     "__type__": "cc.Node",
@@ -23234,7 +23234,7 @@
   },
   {
     "__type__": "cc.SkinningModelComponent",
-    "_name": "",
+    "_name": "Ch46<SkinningModelComponent>",
     "_objFlags": 0,
     "node": {
       "__id__": 786
@@ -23242,10 +23242,10 @@
     "_enabled": true,
     "_materials": [
       {
-        "__uuid__": "aa6a532c-0994-4979-bde7-b56625fb9577@ce172"
+        "__uuid__": "2a10fc7b-f379-4ee0-836e-3769d55a567d"
       },
       {
-        "__uuid__": "aa6a532c-0994-4979-bde7-b56625fb9577@ce172"
+        "__uuid__": "2a10fc7b-f379-4ee0-836e-3769d55a567d"
       },
       {
         "__uuid__": "aa6a532c-0994-4979-bde7-b56625fb9577@ce172"
@@ -24911,7 +24911,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0.793,
-      "y": 3.948,
+      "y": 6.874,
       "z": 9.91
     },
     "_lrot": {
@@ -24978,7 +24978,7 @@
   },
   {
     "__type__": "cc.BoxColliderComponent",
-    "_name": "",
+    "_name": "Plane-001<BoxColliderComponent>",
     "_objFlags": 0,
     "node": {
       "__id__": 837
@@ -25232,27 +25232,16 @@
     "_children": [
       {
         "__id__": 850
-      },
-      {
-        "__id__": 853
-      },
-      {
-        "__id__": 856
-      },
-      {
-        "__id__": 859
-      },
-      {
-        "__id__": 862
       }
     ],
     "_active": true,
     "_components": [],
+    "_prefab": null,
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0,
       "y": 0,
-      "z": 0
+      "z": 0.651
     },
     "_lrot": {
       "__type__": "cc.Quat",
@@ -25278,7 +25267,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Sphere Light",
+    "_name": "Directional Light",
     "_objFlags": 0,
     "_parent": {
       "__id__": 849
@@ -25290,302 +25279,7 @@
         "__id__": 851
       }
     ],
-    "_lpos": {
-      "__type__": "cc.Vec3",
-      "x": -11.947,
-      "y": 4.308,
-      "z": 6.355
-    },
-    "_lrot": {
-      "__type__": "cc.Quat",
-      "x": 0,
-      "y": 0,
-      "z": 0,
-      "w": 1
-    },
-    "_lscale": {
-      "__type__": "cc.Vec3",
-      "x": 1,
-      "y": 1,
-      "z": 1
-    },
-    "_layer": 1073741824,
-    "_euler": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_id": "e9AS/xajVNhYQFjfyMTXVo"
-  },
-  {
-    "__type__": "cc.SphereLightComponent",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 850
-    },
-    "_enabled": true,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    },
-    "_useColorTemperature": false,
-    "_colorTemperature": 6550,
-    "_staticSettings": {
-      "__id__": 852
-    },
-    "_size": 2.15,
-    "_luminance": 1913.8445799108247,
-    "_term": 0,
-    "_range": 9.142,
-    "_id": "bbAEu7jWxGyo9kBYYxT9Pl"
-  },
-  {
-    "__type__": "cc.StaticLightSettings",
-    "_editorOnly": false,
-    "_bakeable": false,
-    "_castShadow": false
-  },
-  {
-    "__type__": "cc.Node",
-    "_name": "Sphere Light-001",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 849
-    },
-    "_children": [],
-    "_active": true,
-    "_components": [
-      {
-        "__id__": 854
-      }
-    ],
-    "_lpos": {
-      "__type__": "cc.Vec3",
-      "x": -5.884,
-      "y": 4.308,
-      "z": 6.355
-    },
-    "_lrot": {
-      "__type__": "cc.Quat",
-      "x": 0,
-      "y": 0,
-      "z": 0,
-      "w": 1
-    },
-    "_lscale": {
-      "__type__": "cc.Vec3",
-      "x": 1,
-      "y": 1,
-      "z": 1
-    },
-    "_layer": 1073741824,
-    "_euler": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_id": "332oC9NvhAVIsR0Ae4t0ZK"
-  },
-  {
-    "__type__": "cc.SphereLightComponent",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 853
-    },
-    "_enabled": true,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    },
-    "_useColorTemperature": false,
-    "_colorTemperature": 6550,
-    "_staticSettings": {
-      "__id__": 855
-    },
-    "_size": 2.15,
-    "_luminance": 1913.8445799108247,
-    "_term": 0,
-    "_range": 9.142,
-    "_id": "ed90v/NeJEjopQADmjCNw/"
-  },
-  {
-    "__type__": "cc.StaticLightSettings",
-    "_editorOnly": false,
-    "_bakeable": false,
-    "_castShadow": false
-  },
-  {
-    "__type__": "cc.Node",
-    "_name": "Sphere Light-002",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 849
-    },
-    "_children": [],
-    "_active": true,
-    "_components": [
-      {
-        "__id__": 857
-      }
-    ],
-    "_lpos": {
-      "__type__": "cc.Vec3",
-      "x": 2.946,
-      "y": 4.308,
-      "z": 6.355
-    },
-    "_lrot": {
-      "__type__": "cc.Quat",
-      "x": 0,
-      "y": 0,
-      "z": 0,
-      "w": 1
-    },
-    "_lscale": {
-      "__type__": "cc.Vec3",
-      "x": 1,
-      "y": 1,
-      "z": 1
-    },
-    "_layer": 1073741824,
-    "_euler": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_id": "8a/pGf1MlPU6nPV7/590mN"
-  },
-  {
-    "__type__": "cc.SphereLightComponent",
-    "_name": "Sphere Light-002<SphereLightComponent>",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 856
-    },
-    "_enabled": true,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    },
-    "_useColorTemperature": false,
-    "_colorTemperature": 6550,
-    "_staticSettings": {
-      "__id__": 858
-    },
-    "_size": 0.15,
-    "_luminance": 1913.8445799108247,
-    "_term": 0,
-    "_range": 9.142,
-    "_id": "eeEFh98stJYIxAff2wX1Dh"
-  },
-  {
-    "__type__": "cc.StaticLightSettings",
-    "_editorOnly": false,
-    "_bakeable": false,
-    "_castShadow": false
-  },
-  {
-    "__type__": "cc.Node",
-    "_name": "Sphere Light-003",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 849
-    },
-    "_children": [],
-    "_active": true,
-    "_components": [
-      {
-        "__id__": 860
-      }
-    ],
-    "_lpos": {
-      "__type__": "cc.Vec3",
-      "x": 11.732,
-      "y": 4.308,
-      "z": 6.355
-    },
-    "_lrot": {
-      "__type__": "cc.Quat",
-      "x": 0,
-      "y": 0,
-      "z": 0,
-      "w": 1
-    },
-    "_lscale": {
-      "__type__": "cc.Vec3",
-      "x": 1,
-      "y": 1,
-      "z": 1
-    },
-    "_layer": 1073741824,
-    "_euler": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_id": "b8GznlkTBJSIaTxvmTU25r"
-  },
-  {
-    "__type__": "cc.SphereLightComponent",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 859
-    },
-    "_enabled": true,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    },
-    "_useColorTemperature": false,
-    "_colorTemperature": 6550,
-    "_staticSettings": {
-      "__id__": 861
-    },
-    "_size": 2.15,
-    "_luminance": 1913.8445799108247,
-    "_term": 0,
-    "_range": 17.142,
-    "_id": "e68H36rQxIM7tq8kEQXnht"
-  },
-  {
-    "__type__": "cc.StaticLightSettings",
-    "_editorOnly": false,
-    "_bakeable": false,
-    "_castShadow": false
-  },
-  {
-    "__type__": "cc.Node",
-    "_name": "Directional Light",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 849
-    },
-    "_children": [],
-    "_active": true,
-    "_components": [
-      {
-        "__id__": 863
-      }
-    ],
+    "_prefab": null,
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0,
@@ -25594,10 +25288,10 @@
     },
     "_lrot": {
       "__type__": "cc.Quat",
-      "x": -0.14375170719800906,
+      "x": -0.2546525822634579,
       "y": 0,
       "z": 0,
-      "w": 0.9896137866246902
+      "w": 0.967032606661509
     },
     "_lscale": {
       "__type__": "cc.Vec3",
@@ -25608,7 +25302,7 @@
     "_layer": 1073741824,
     "_euler": {
       "__type__": "cc.Vec3",
-      "x": -16.53,
+      "x": -29.506,
       "y": 0,
       "z": 0
     },
@@ -25616,43 +25310,43 @@
   },
   {
     "__type__": "cc.DirectionalLightComponent",
-    "_name": "",
+    "_name": "Directional Light<DirectionalLightComponent>",
     "_objFlags": 0,
     "node": {
-      "__id__": 862
+      "__id__": 850
     },
     "_enabled": true,
     "_color": {
       "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
+      "r": 216,
+      "g": 212,
+      "b": 171,
       "a": 255
     },
     "_useColorTemperature": false,
     "_colorTemperature": 6550,
     "_staticSettings": {
-      "__id__": 864
+      "__id__": 852
     },
-    "_illuminance": 65000,
+    "_illuminance": 150000,
     "_id": "c762hKUJRBRbtWdsgReFqJ"
   },
   {
     "__type__": "cc.StaticLightSettings",
     "_editorOnly": false,
-    "_bakeable": false,
-    "_castShadow": false
+    "_bakeable": true,
+    "_castShadow": true
   },
   {
     "__type__": "cc.SceneGlobals",
     "ambient": {
-      "__id__": 866
+      "__id__": 854
     },
     "planarShadows": {
-      "__id__": 867
+      "__id__": 855
     },
     "_skybox": {
-      "__id__": 868
+      "__id__": 856
     }
   },
   {
