@@ -69,6 +69,8 @@ export class playerControl extends Component {
     this.prevPos.set(person);
     this.plaAnimation(false);
 
+    cc.macro.ENABLE_WEBGL_ANTIALIAS = true;
+
     // this.initialCameraPos = this.mainCamera.getPosition();
   }
 

@@ -1,0 +1,15 @@
+{
+  "ver": "2.0.14",
+  "importer": "typescript",
+  "imported": true,
+  "uuid": "e494977b-ed5f-4fe5-bc9c-d1fab2993857",
+  "files": [
+    ".js",
+    ".trans"
+  ],
+  "subMetas": {},
+  "userData": {
+    "importAsPlugin": false,
+    "moduleId": "project:///assets/dialogs/dialog_2.js"
+  }
+}

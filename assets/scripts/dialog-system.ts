@@ -4,10 +4,11 @@ import {
   Node,
   ButtonComponent,
   LabelComponent,
+  ColliderComponent,
 } from "cc";
 const { ccclass, property } = _decorator;
 
-import { dialog } from "../dialogs/dialog";
+import { dialog } from "../dialogs/dialog_3";
 
 import { CustomButtonComponent } from "./components/CustomButtonComponent";
 
@@ -26,6 +27,9 @@ export class DialogSystem extends Component {
   @property({ type: ButtonComponent })
   public buttonChoice_2: CustomButtonComponent = null;
 
+  @property({ type: ButtonComponent })
+  public textButton: CustomButtonComponent = null;
+
   @property({ type: LabelComponent })
   public choice_1: LabelComponent = null;
 
@@ -35,12 +39,19 @@ export class DialogSystem extends Component {
   private currentDialog = null;
   private gameDialogs = dialog;
 
+  @property({ type: Node })
+  public triggerBlock: ColliderComponent = null;
+
   start() {
     // Your initialization goes here.
 
     this.currentDialog = dialog[0];
     this.gameDialogs = dialog;
-    this.nextState();
+
+    let collider = this.triggerBlock.getComponent(ColliderComponent);
+    if (collider) {
+      collider.once("onTriggerEnter", this.startDialog, this);
+    }
   }
 
   chooseOption(e: any) {
@@ -57,6 +68,11 @@ export class DialogSystem extends Component {
   }
 
   nextState() {
+    let activeText = this.currentDialog.name || false;
+    if (activeText) activeText = true;
+    this.textButton.node.active = activeText;
+    this.text.node.active = activeText;
+
     if (this.currentDialog.choices) {
       this.setActiveChoices(true);
       this.buttonChoice_1.id = this.currentDialog.choices[0];
@@ -66,15 +82,23 @@ export class DialogSystem extends Component {
       this.setTextById(this.choice_2, this.buttonChoice_2.id);
 
       this.text.string = this.currentDialog.name;
+
+      this.textButton.id = this.currentDialog.id;
     } else if (this.currentDialog.next) {
       let block = this.getById(this.currentDialog.next);
+
       this.setActiveChoices(false);
+
       if (block.type == "Text") {
         this.text.string = block.name;
       }
 
-      if (block.choices) {
+      if (block.next) {
         this.currentDialog = block;
+        this.textButton.id = block.id;
+      } else if (block.choices) {
+        this.currentDialog = block;
+        this.textButton.id = block.id;
         this.nextState();
       }
     }
@@ -87,10 +111,15 @@ export class DialogSystem extends Component {
   setActiveChoices(condition: boolean) {
     this.buttonChoice_1.node.active = condition;
     this.buttonChoice_2.node.active = condition;
+    // this.textButton.enabled = !condition;
   }
 
   reset() {
     this.currentDialog = this.gameDialogs[0];
+    this.nextState();
+  }
+
+  startDialog() {
     this.nextState();
   }
 
