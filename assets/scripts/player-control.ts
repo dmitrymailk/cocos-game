@@ -74,7 +74,7 @@ export class playerControl extends Component {
     // this.initialCameraPos = this.mainCamera.getPosition();
   }
 
-  update(dt: number) {
+  lateUpdate(dt: number) {
     if (this._key & EKey.W) {
       v3_0.z = -1;
     }
@@ -155,7 +155,7 @@ export class playerControl extends Component {
     if (this.walk != active) {
       this.walk = active;
       if (this.walk) {
-        animation.crossFade(clips[0].name, 0.3);
+        animation.crossFade(clips[2].name, 0.3);
       } else {
         // animation.crossFade(clips[1].name, 3);
         animation.play(clips[1].name);

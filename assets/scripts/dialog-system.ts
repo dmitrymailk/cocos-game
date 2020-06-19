@@ -6,6 +6,7 @@ import {
   LabelComponent,
   ColliderComponent,
   AnimationComponent,
+  SpriteComponent,
 } from "cc";
 const { ccclass, property } = _decorator;
 
@@ -36,6 +37,9 @@ export class DialogSystem extends Component {
 
   @property({ type: LabelComponent })
   public choice_2: LabelComponent = null;
+
+  @property({ type: SpriteComponent })
+  public personView: SpriteComponent = null;
 
   private currentDialog = null;
   private gameDialogs = dialog;
@@ -134,6 +138,7 @@ export class DialogSystem extends Component {
   startDialog() {
     if (!this.isStart) {
       this.nextState();
+      this.personView.node.active = true;
     }
   }
 
