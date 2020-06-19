@@ -13,6 +13,7 @@ import {
   Vec3,
   Quat,
   AnimationComponent,
+  CCFloat,
 
   // tween,
 } from "cc";
@@ -54,14 +55,16 @@ export class playerControl extends Component {
   @property({ type: Node })
   public mainCamera: Node = null;
 
-  @property({ type: Number })
-  public smoothRot: Number = 1;
+  @property({ type: CCFloat })
+  public smoothRot: number = 1;
 
-  @property({ type: Number })
+  @property({ type: CCFloat })
   public maxSpeed: number = 6;
 
-  @property({ type: Number })
+  @property({ type: CCFloat })
   public restrictionNum: number = -0.1;
+
+  public canMove = true;
 
   start() {
     this._rigidBody = this.getComponent(RigidBodyComponent);
@@ -75,67 +78,69 @@ export class playerControl extends Component {
   }
 
   lateUpdate(dt: number) {
-    if (this._key & EKey.W) {
-      v3_0.z = -1;
-    }
-    if (this._key & EKey.S) {
-      v3_0.z = 1;
-    }
-    if (this._key & EKey.A) {
-      v3_0.x = -1;
-    }
-    if (this._key & EKey.D) {
-      v3_0.x = 1;
-    }
-    if (this._key & EKey.SHIFT) {
-    }
-
-    if (v3_0.z != 0 || v3_0.x != 0) {
-      v3_0.multiplyScalar(this.shiftScale);
-      let velocity = new Vec3();
-      this._rigidBody.getLinearVelocity(velocity);
-      let { x, y, z } = velocity;
-
-      if (
-        Math.abs(x) < this.maxSpeed &&
-        Math.abs(y) < this.maxSpeed &&
-        Math.abs(z) < this.maxSpeed
-      ) {
-        this._rigidBody.applyImpulse(v3_0);
-        this.plaAnimation(true);
-        v3_0.set(0, 0, 0);
-      } else {
-        this._rigidBody.applyImpulse(v3_0);
-        v3_0.multiplyScalar(this.restrictionNum);
-        this._rigidBody.applyImpulse(v3_0);
-        this.plaAnimation(true);
+    if (this.canMove) {
+      if (this._key & EKey.W) {
+        v3_0.z = -1;
       }
-    }
+      if (this._key & EKey.S) {
+        v3_0.z = 1;
+      }
+      if (this._key & EKey.A) {
+        v3_0.x = -1;
+      }
+      if (this._key & EKey.D) {
+        v3_0.x = 1;
+      }
+      if (this._key & EKey.SHIFT) {
+      }
 
-    if (this._rigidBody.isAwake) {
-      let per_0 = this.person.getWorldPosition();
-      let per_1 = this.prevPos;
-      let targetAngle =
-        (Math.atan2(per_0.x - per_1.x, per_0.z - per_1.z) * 180) / Math.PI;
+      if (v3_0.z != 0 || v3_0.x != 0) {
+        v3_0.multiplyScalar(this.shiftScale);
+        let velocity = new Vec3();
+        this._rigidBody.getLinearVelocity(velocity);
+        let { x, y, z } = velocity;
 
-      let quat: Quat = new Quat();
-      math.Quat.fromEuler(quat, 0, targetAngle, 0);
-      let userRot = new Quat();
-      math.Quat.slerp(
-        userRot,
-        this.person.getRotation(),
-        quat,
-        dt * +this.smoothRot
-      );
+        if (
+          Math.abs(x) < this.maxSpeed &&
+          Math.abs(y) < this.maxSpeed &&
+          Math.abs(z) < this.maxSpeed
+        ) {
+          this._rigidBody.applyImpulse(v3_0);
+          this.plaAnimation(true);
+          v3_0.set(0, 0, 0);
+        } else {
+          this._rigidBody.applyImpulse(v3_0);
+          v3_0.multiplyScalar(this.restrictionNum);
+          this._rigidBody.applyImpulse(v3_0);
+          this.plaAnimation(true);
+        }
+      }
 
-      let eurlerRot = new Vec3();
-      math.Quat.toEuler(eurlerRot, userRot);
+      if (this._rigidBody.isAwake) {
+        let per_0 = this.person.getWorldPosition();
+        let per_1 = this.prevPos;
+        let targetAngle =
+          (Math.atan2(per_0.x - per_1.x, per_0.z - per_1.z) * 180) / Math.PI;
 
-      this.person.eulerAngles = eurlerRot;
+        let quat: Quat = new Quat();
+        math.Quat.fromEuler(quat, 0, targetAngle, 0);
+        let userRot = new Quat();
+        math.Quat.slerp(
+          userRot,
+          this.person.getRotation(),
+          quat,
+          dt * +this.smoothRot
+        );
 
-      // this.person.eulerAngles = new Vec3(0, targetAngle, 0); // easy way to rotate
+        let eurlerRot = new Vec3();
+        math.Quat.toEuler(eurlerRot, userRot);
 
-      this.prevPos.set(per_0);
+        this.person.eulerAngles = eurlerRot;
+
+        // this.person.eulerAngles = new Vec3(0, targetAngle, 0); // easy way to rotate
+
+        this.prevPos.set(per_0);
+      }
     }
 
     // camera following on x

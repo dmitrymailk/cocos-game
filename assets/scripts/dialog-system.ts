@@ -41,9 +41,13 @@ export class DialogSystem extends Component {
   @property({ type: SpriteComponent })
   public personView: SpriteComponent = null;
 
+  @property({ type: Node })
+  public animationSystem: Node = null;
+
   private currentDialog = null;
   private gameDialogs = dialog;
   private isStart = false;
+  private coffeeGetTrigger = "Сделать заказ";
 
   @property({ type: Node })
   public triggerBlock: ColliderComponent = null;
@@ -58,6 +62,9 @@ export class DialogSystem extends Component {
     if (collider) {
       collider.once("onTriggerEnter", this.startDialog, this);
     }
+
+    // @ts-ignore
+    this.animationSystem = this.animationSystem.getComponent("AnimationSystem");
   }
 
   chooseOption(e: any) {
@@ -65,6 +72,10 @@ export class DialogSystem extends Component {
     console.log(id);
     let dialogBlock = this.getById(id);
     this.currentDialog = dialogBlock;
+    if (dialogBlock.name == this.coffeeGetTrigger) {
+      // @ts-ignore
+      this.animationSystem.showCup();
+    }
     this.nextState();
   }
 
