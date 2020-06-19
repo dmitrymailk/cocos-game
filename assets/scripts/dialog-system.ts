@@ -5,6 +5,7 @@ import {
   ButtonComponent,
   LabelComponent,
   ColliderComponent,
+  AnimationComponent,
 } from "cc";
 const { ccclass, property } = _decorator;
 
@@ -38,6 +39,7 @@ export class DialogSystem extends Component {
 
   private currentDialog = null;
   private gameDialogs = dialog;
+  private isStart = false;
 
   @property({ type: Node })
   public triggerBlock: ColliderComponent = null;
@@ -75,6 +77,9 @@ export class DialogSystem extends Component {
 
     if (this.currentDialog.choices) {
       this.setActiveChoices(true);
+      this.showDialog(this.buttonChoice_1);
+      this.showDialog(this.buttonChoice_2);
+
       this.buttonChoice_1.id = this.currentDialog.choices[0];
       this.buttonChoice_2.id = this.currentDialog.choices[1];
 
@@ -102,6 +107,8 @@ export class DialogSystem extends Component {
         this.nextState();
       }
     }
+
+    if (!this.isStart) this.isStart = true;
   }
 
   getById(id: any) {
@@ -116,11 +123,24 @@ export class DialogSystem extends Component {
 
   reset() {
     this.currentDialog = this.gameDialogs[0];
-    this.nextState();
+    this.setActiveChoices(false);
+    let activeText = false;
+    this.textButton.node.active = activeText;
+    this.text.node.active = activeText;
+
+    this.isStart = false;
   }
 
   startDialog() {
-    this.nextState();
+    if (!this.isStart) {
+      this.nextState();
+    }
+  }
+
+  showDialog(dialog: ButtonComponent) {
+    let animation = dialog.getComponent(AnimationComponent);
+    let clips = animation.clips;
+    animation.play(clips[0].name);
   }
 
   // update (deltaTime: number) {

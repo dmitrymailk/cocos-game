@@ -1,0 +1,13 @@
+{
+  "ver": "1.0.10",
+  "importer": "animation-clip",
+  "imported": true,
+  "uuid": "24ec1d6f-fc5d-4e80-80b7-b3d55715a725",
+  "files": [
+    ".json"
+  ],
+  "subMetas": {},
+  "userData": {
+    "name": "show-dialog"
+  }
+}
