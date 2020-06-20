@@ -1,0 +1,45 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "camera-zoom",
+  "_objFlags": 0,
+  "_native": "",
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 1,
+  "events": [],
+  "_duration": 1.6666666666666667,
+  "_keys": [
+    [
+      0,
+      1.6666666666666667
+    ]
+  ],
+  "_stepness": 0,
+  "_curves": [
+    {
+      "modifiers": [
+        "position"
+      ],
+      "data": {
+        "keys": 0,
+        "values": [
+          {
+            "__type__": "cc.Vec3",
+            "x": 0,
+            "y": 0.896,
+            "z": 2.542
+          },
+          {
+            "__type__": "cc.Vec3",
+            "x": 0,
+            "y": 0.888,
+            "z": 2.482
+          }
+        ],
+        "easingMethods": {}
+      }
+    }
+  ],
+  "_commonTargets": [],
+  "_hash": 2877992504
+}

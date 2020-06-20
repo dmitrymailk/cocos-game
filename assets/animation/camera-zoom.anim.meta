@@ -1,0 +1,13 @@
+{
+  "ver": "1.0.10",
+  "importer": "animation-clip",
+  "imported": true,
+  "uuid": "8349b59e-f03e-4b23-aa85-fcd32f89a9ad",
+  "files": [
+    ".json"
+  ],
+  "subMetas": {},
+  "userData": {
+    "name": "camera-zoom"
+  }
+}

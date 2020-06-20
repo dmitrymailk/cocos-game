@@ -10,6 +10,8 @@ import {
   CameraComponent,
   Vec3,
   SystemEventType,
+  director,
+  animation,
 } from "cc";
 const { ccclass, property } = _decorator;
 
@@ -51,6 +53,9 @@ export class AnimationSystem extends Component {
   @property({ type: Node })
   public objOnGirl: Node = null;
 
+  @property({ type: Node })
+  public backToComic: Node = null;
+
   private isEnterCoffee = false;
   private _key: number = EKey.NONE;
   private isXpressed = false;
@@ -61,10 +66,26 @@ export class AnimationSystem extends Component {
     // @ts-ignore
     this.playerControl = this.playerControl.getComponent("playerControl");
     let coffeeTrigger = this.coffeeTrigger.getComponent(ColliderComponent);
-    if (coffeeTrigger) {
-      coffeeTrigger.on("onTriggerEnter", this.enterCoffee, this);
-      coffeeTrigger.on("onTriggerExit", this.exitCoffee, this);
-    }
+    let backToComic = this.backToComic.getComponent(ColliderComponent);
+
+    coffeeTrigger.on("onTriggerEnter", this.enterCoffee, this);
+    coffeeTrigger.on("onTriggerExit", this.exitCoffee, this);
+
+    backToComic.on(
+      "onTriggerEnter",
+      () => {
+        this.stopMove();
+        self.id = 5;
+        let animation = this.mainCamera.getComponent(AnimationComponent);
+        let clips = animation.clips;
+        animation.play(clips[0].name);
+        // @ts-ignore
+        animation.on("finished", () => {
+          director.loadScene("comic");
+        });
+      },
+      this
+    );
   }
 
   showCup() {
@@ -84,6 +105,8 @@ export class AnimationSystem extends Component {
     console.log("CAN MOVE", this.playerControl.canMove);
     // @ts-ignore
     this.playerControl.canMove = !this.playerControl.canMove;
+    // @ts-ignore
+    this.playerControl.plaAnimation(false);
   }
 
   enterCoffee() {

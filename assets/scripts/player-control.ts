@@ -1,3 +1,4 @@
+// cc.macro.ENABLE_WEBGL_ANTIALIAS = true;
 import {
   _decorator,
   Component,
@@ -153,7 +154,7 @@ export class playerControl extends Component {
     // this.mainCamera.setPosition(new Vec3(x, y_0, z_0));
   }
 
-  plaAnimation(active: Boolean) {
+  plaAnimation(active: boolean) {
     let animation = this.person.getComponent(AnimationComponent);
     let clips = animation.clips;
 
