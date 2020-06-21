@@ -3,7 +3,7 @@
     "modules": {
       "cache": {
         "Audio": {
-          "value": true
+          "value": false
         },
         "Core": {
           "value": true
@@ -12,17 +12,17 @@
           "value": true
         },
         "Particle System": {
-          "value": true
+          "value": false
         },
         "Physics": {
           "option": 0,
           "value": true
         },
         "Terrain": {
-          "value": true
+          "value": false
         },
         "Tween": {
-          "value": true
+          "value": false
         },
         "UI": {
           "value": true
@@ -39,12 +39,8 @@
         "gfx-webgl",
         "gfx-webgl2",
         "ui",
-        "particle",
         "physics-cannon",
-        "physics-framework",
-        "audio",
-        "tween",
-        "terrain"
+        "physics-framework"
       ]
     }
   }

@@ -15,7 +15,7 @@ import {
   Quat,
   AnimationComponent,
   CCFloat,
-
+  PhysicsSystem,
   // tween,
 } from "cc";
 const { ccclass, property, menu } = _decorator;
@@ -66,19 +66,29 @@ export class playerControl extends Component {
   public restrictionNum: number = -0.1;
 
   public canMove = true;
+  public isBuy = false;
+  private mAccumulatedTime = 0;
 
   start() {
     this._rigidBody = this.getComponent(RigidBodyComponent);
     let person = this.person.getPosition();
     this.prevPos.set(person);
     this.plaAnimation(false);
-
-    cc.macro.ENABLE_WEBGL_ANTIALIAS = true;
-
-    // this.initialCameraPos = this.mainCamera.getPosition();
   }
 
-  lateUpdate(dt: number) {
+  // update(dt: number){
+  //   this.fixedUpdate(dt)
+  // }
+
+  update(dt: number) {
+    //   this.mAccumulatedTime += dt;
+
+    //   if (this.mAccumulatedTime > FixedTimeStep)
+    // {
+    //   DoFixedTimeStepStuff();
+    //   mAccumulatedTime -= FixedTimeStep;
+    // }
+
     if (this.canMove) {
       if (this._key & EKey.W) {
         v3_0.z = -1;
@@ -161,10 +171,12 @@ export class playerControl extends Component {
     if (this.walk != active) {
       this.walk = active;
       if (this.walk) {
-        animation.crossFade(clips[2].name, 0.3);
+        if (!this.isBuy) animation.crossFade(clips[4].name, 0.3);
+        else animation.play(clips[1].name);
       } else {
         // animation.crossFade(clips[1].name, 3);
-        animation.play(clips[1].name);
+        if (!this.isBuy) animation.play(clips[2].name);
+        else animation.play(clips[0].name);
       }
     }
   }

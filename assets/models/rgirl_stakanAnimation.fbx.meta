@@ -1,0 +1,283 @@
+{
+  "ver": "1.3.21",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "9f445b2d-6ec1-4551-8a0e-7cb281cd627d",
+  "files": [],
+  "subMetas": {
+    "6f910": {
+      "importer": "gltf-mesh",
+      "uuid": "9f445b2d-6ec1-4551-8a0e-7cb281cd627d@6f910",
+      "displayName": "",
+      "id": "6f910",
+      "name": "Ch46.001.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "cf371": {
+      "importer": "gltf-animation",
+      "uuid": "9f445b2d-6ec1-4551-8a0e-7cb281cd627d@cf371",
+      "displayName": "",
+      "id": "cf371",
+      "name": "Armature.001|Holding_idle.animation",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "events": [],
+        "gltfIndex": 0,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 8.333333015441895
+        },
+        "wrapMode": 2,
+        "speed": 1
+      }
+    },
+    "3b13e": {
+      "importer": "gltf-animation",
+      "uuid": "9f445b2d-6ec1-4551-8a0e-7cb281cd627d@3b13e",
+      "displayName": "",
+      "id": "3b13e",
+      "name": "Armature.001|Holding_walking.animation",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "events": [],
+        "gltfIndex": 1,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1.25
+        },
+        "wrapMode": 2,
+        "speed": 1
+      }
+    },
+    "9af54": {
+      "importer": "gltf-animation",
+      "uuid": "9f445b2d-6ec1-4551-8a0e-7cb281cd627d@9af54",
+      "displayName": "",
+      "id": "9af54",
+      "name": "Armature.001|Idle.animation",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 2,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 8.333333015441895
+        },
+        "events": []
+      }
+    },
+    "b03f8": {
+      "importer": "gltf-animation",
+      "uuid": "9f445b2d-6ec1-4551-8a0e-7cb281cd627d@b03f8",
+      "displayName": "",
+      "id": "b03f8",
+      "name": "Armature.001|Running.animation",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 3,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 0.6666666865348816
+        },
+        "events": []
+      }
+    },
+    "cd298": {
+      "importer": "gltf-animation",
+      "uuid": "9f445b2d-6ec1-4551-8a0e-7cb281cd627d@cd298",
+      "displayName": "",
+      "id": "cd298",
+      "name": "Armature.001|Walking.animation",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 4,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1.2083333730697632
+        },
+        "events": []
+      }
+    },
+    "438fe": {
+      "importer": "gltf-skeleton",
+      "uuid": "9f445b2d-6ec1-4551-8a0e-7cb281cd627d@438fe",
+      "displayName": "",
+      "id": "438fe",
+      "name": "UnnamedSkeleton.skeleton",
+      "ver": "1.0.1",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0,
+        "jointsLength": 78
+      }
+    },
+    "df2cf": {
+      "importer": "gltf-material",
+      "uuid": "9f445b2d-6ec1-4551-8a0e-7cb281cd627d@df2cf",
+      "displayName": "",
+      "id": "df2cf",
+      "name": "Ch46_body2.001.material",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "5c6c5": {
+      "importer": "gltf-scene",
+      "uuid": "9f445b2d-6ec1-4551-8a0e-7cb281cd627d@5c6c5",
+      "displayName": "",
+      "id": "5c6c5",
+      "name": "rgirl_stakanAnimation.prefab",
+      "ver": "1.0.11",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "animationImportSettings": [
+      {
+        "name": "Armature.001|Holding_idle",
+        "duration": 8.333333015441895,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Armature.001|Holding_idle",
+            "from": 0,
+            "to": 8.333333015441895,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Armature.001|Holding_walking",
+        "duration": 1.25,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Armature.001|Holding_walking",
+            "from": 0,
+            "to": 1.25,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Armature.001|Idle",
+        "duration": 8.333333015441895,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Armature.001|Idle",
+            "from": 0,
+            "to": 8.333333015441895,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Armature.001|Running",
+        "duration": 0.6666666865348816,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Armature.001|Running",
+            "from": 0,
+            "to": 0.6666666865348816,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Armature.001|Walking",
+        "duration": 1.2083333730697632,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Armature.001|Walking",
+            "from": 0,
+            "to": 1.2083333730697632,
+            "wrapMode": 2
+          }
+        ]
+      }
+    ],
+    "redirect": "9f445b2d-6ec1-4551-8a0e-7cb281cd627d@5c6c5",
+    "assetFinder": {
+      "meshes": [
+        "9f445b2d-6ec1-4551-8a0e-7cb281cd627d@6f910"
+      ],
+      "skeletons": [
+        "9f445b2d-6ec1-4551-8a0e-7cb281cd627d@438fe"
+      ],
+      "textures": [],
+      "materials": [
+        "9f445b2d-6ec1-4551-8a0e-7cb281cd627d@df2cf"
+      ],
+      "scenes": [
+        "9f445b2d-6ec1-4551-8a0e-7cb281cd627d@5c6c5"
+      ]
+    }
+  }
+}

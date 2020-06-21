@@ -106,7 +106,6 @@ export class AnimationSystem extends Component {
     // @ts-ignore
     this.playerControl.canMove = !this.playerControl.canMove;
     // @ts-ignore
-    this.playerControl.plaAnimation(false);
   }
 
   enterCoffee() {
@@ -139,6 +138,8 @@ export class AnimationSystem extends Component {
         this.isXpressed = !this.isXpressed;
         this.isBuy = true;
         this.coffeButtonUI.active = false;
+        // @ts-ignore
+        this.playerControl.isBuy = true;
       }
     }
 

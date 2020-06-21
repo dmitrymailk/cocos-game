@@ -21,6 +21,7 @@
       ],
       "subMetas": {},
       "userData": {
+        "imageUuidOrDatabaseUri": "3b1e1f5d-94fe-41bf-a0a4-fcd65b5ebe8d",
         "wrapModeS": "repeat",
         "wrapModeT": "repeat",
         "minfilter": "linear",
@@ -28,8 +29,7 @@
         "mipfilter": "none",
         "premultiplyAlpha": false,
         "anisotropy": 1,
-        "isUuid": true,
-        "imageUuidOrDatabaseUri": "3b1e1f5d-94fe-41bf-a0a4-fcd65b5ebe8d"
+        "isUuid": true
       }
     },
     "f9941": {
@@ -45,7 +45,7 @@
       ],
       "subMetas": {},
       "userData": {
-        "trimType": "auto",
+        "trimType": "custom",
         "trimThreshold": 1,
         "rotated": false,
         "offsetX": 0,
