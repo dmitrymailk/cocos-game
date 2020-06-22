@@ -33,6 +33,9 @@ export class AnimationSystem extends Component {
   public playerControl: Node = null;
 
   @property({ type: Node })
+  public dialogSystem: Node = null;
+
+  @property({ type: Node })
   public coffeeCup: Node = null;
 
   @property({ type: Node })
@@ -65,6 +68,9 @@ export class AnimationSystem extends Component {
   start() {
     // @ts-ignore
     this.playerControl = this.playerControl.getComponent("playerControl");
+    // @ts-ignore
+    this.dialogSystem = this.dialogSystem.getComponent("DialogSystem");
+
     let coffeeTrigger = this.coffeeTrigger.getComponent(ColliderComponent);
     let backToComic = this.backToComic.getComponent(ColliderComponent);
 
@@ -140,6 +146,8 @@ export class AnimationSystem extends Component {
         this.coffeButtonUI.active = false;
         // @ts-ignore
         this.playerControl.isBuy = true;
+        // @ts-ignore
+        this.dialogSystem.nextState();
       }
     }
 

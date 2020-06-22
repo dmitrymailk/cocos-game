@@ -5,8 +5,9 @@ import {
   AnimationComponent,
   AnimationClip,
   director,
-  UITransformComponent,
 } from "cc";
+
+import store from "../../store/index";
 const { ccclass, property } = _decorator;
 
 @ccclass("ComicControl")
@@ -29,6 +30,8 @@ export class ComicControl extends Component {
 
   private currentSlide = 1;
   private maxSlides = 8;
+  // @ts-ignore
+  // private isWatched = store.isWatched;
 
   start() {
     for (let i = 1; i < this.maxSlides; i++) {
@@ -47,8 +50,18 @@ export class ComicControl extends Component {
   nextSlide() {
     if (this.currentSlide + 1 <= this.maxSlides) {
       this.playAnimById(this.currentSlide, 0);
-      this.currentSlide++;
       self.id = this.currentSlide;
+      // @ts-ignore
+      if (this.currentSlide == 5 && !store.isWatched) {
+        let sprite = this.sprites.getChildByName(`${this.currentSlide}`);
+        let animation = sprite.getComponent(AnimationComponent);
+        let clips = animation.clips;
+        animation.play(clips[2].name);
+        director.loadScene("cafe");
+        // @ts-ignore
+        store.isWatched = true;
+      }
+      this.currentSlide++;
     }
   }
 
@@ -62,13 +75,13 @@ export class ComicControl extends Component {
   select() {
     let curr = this.currentSlide;
 
-    if (curr == 5) {
-      let sprite = this.sprites.getChildByName(`${this.currentSlide}`);
-      let animation = sprite.getComponent(AnimationComponent);
-      let clips = animation.clips;
-      animation.play(clips[2].name);
-      director.loadScene("cafe");
-    }
+    // if (curr == 5) {
+    //   let sprite = this.sprites.getChildByName(`${this.currentSlide}`);
+    //   let animation = sprite.getComponent(AnimationComponent);
+    //   let clips = animation.clips;
+    //   animation.play(clips[2].name);
+    //   director.loadScene("cafe");
+    // }
   }
 
   playAnimById(id: number, pos: number) {
