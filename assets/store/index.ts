@@ -1,3 +1,5 @@
+// cc.macro.ENABLE_WEBGL_ANTIALIAS = true;
+
 class Store {
   constructor() {
     // @ts-ignore

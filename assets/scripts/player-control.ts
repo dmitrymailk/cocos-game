@@ -67,7 +67,6 @@ export class playerControl extends Component {
 
   public canMove = true;
   public isBuy = false;
-  private mAccumulatedTime = 0;
 
   start() {
     this._rigidBody = this.getComponent(RigidBodyComponent);

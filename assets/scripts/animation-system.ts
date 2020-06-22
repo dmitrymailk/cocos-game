@@ -22,13 +22,6 @@ enum EKey {
 
 @ccclass("AnimationSystem")
 export class AnimationSystem extends Component {
-  /* class member could be defined like this */
-  // dummy = '';
-
-  /* use `property` decorator if your want the member to be serializable */
-  // @property
-  // serializableDummy = 0;
-
   @property({ type: Node })
   public playerControl: Node = null;
 
@@ -53,8 +46,8 @@ export class AnimationSystem extends Component {
   @property({ type: CameraComponent })
   public mainCamera: CameraComponent = null;
 
-  @property({ type: Node })
-  public objOnGirl: Node = null;
+  // @property({ type: Node })
+  // public objOnGirl: Node = null;
 
   @property({ type: Node })
   public backToComic: Node = null;
@@ -64,6 +57,7 @@ export class AnimationSystem extends Component {
   private isXpressed = false;
   private isBuy = false;
   private isCoffeeLine = false;
+  private isfirstMove = false;
 
   start() {
     // @ts-ignore
@@ -149,12 +143,29 @@ export class AnimationSystem extends Component {
         // @ts-ignore
         this.dialogSystem.nextState();
       }
-    }
 
-    if (this.isBuy) {
-      let posOnGirl = this.objOnGirl.getWorldPosition();
-      //   console.log("on girl", posOnGirl);
-      this.coffeeCup.setWorldPosition(posOnGirl);
+      if (
+        !this.isfirstMove &&
+        // @ts-ignore
+        this.playerControl._rigidBody.isAwake &&
+        this.isBuy
+      ) {
+        this.isfirstMove = true;
+        this.coffeeCup.active = false;
+      }
+    }
+  }
+
+  clickOnCup() {
+    if (!this.isXpressed) {
+      console.log("Pressed X");
+      this.isXpressed = !this.isXpressed;
+      this.isBuy = true;
+      this.coffeButtonUI.active = false;
+      // @ts-ignore
+      this.playerControl.isBuy = true;
+      // @ts-ignore
+      this.dialogSystem.nextState();
     }
   }
 
