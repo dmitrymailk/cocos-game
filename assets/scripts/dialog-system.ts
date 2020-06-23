@@ -60,7 +60,7 @@ export class DialogSystem extends Component {
 
     let collider = this.triggerBlock.getComponent(ColliderComponent);
     if (collider) {
-      collider.once("onTriggerEnter", this.startDialog, this);
+      collider.on("onTriggerEnter", this.startDialog, this);
     }
 
     // @ts-ignore

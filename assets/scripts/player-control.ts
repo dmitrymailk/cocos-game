@@ -29,7 +29,6 @@ enum EKey {
   A = 1 << 1,
   S = 1 << 2,
   D = 1 << 3,
-  SHIFT = 1 << 4,
 }
 
 @ccclass("playerControl")
@@ -72,22 +71,13 @@ export class playerControl extends Component {
     this._rigidBody = this.getComponent(RigidBodyComponent);
     let person = this.person.getPosition();
     this.prevPos.set(person);
-    this.plaAnimation(false);
+    let animation = this.person.getComponent(AnimationComponent);
+    let clips = animation.clips;
+
+    animation.play(clips[2].name);
   }
 
-  // update(dt: number){
-  //   this.fixedUpdate(dt)
-  // }
-
   update(dt: number) {
-    //   this.mAccumulatedTime += dt;
-
-    //   if (this.mAccumulatedTime > FixedTimeStep)
-    // {
-    //   DoFixedTimeStepStuff();
-    //   mAccumulatedTime -= FixedTimeStep;
-    // }
-
     if (this.canMove) {
       if (this._key & EKey.W) {
         v3_0.z = -1;
@@ -100,8 +90,6 @@ export class playerControl extends Component {
       }
       if (this._key & EKey.D) {
         v3_0.x = 1;
-      }
-      if (this._key & EKey.SHIFT) {
       }
 
       if (v3_0.z != 0 || v3_0.x != 0) {
@@ -152,15 +140,6 @@ export class playerControl extends Component {
         this.prevPos.set(per_0);
       }
     }
-
-    // camera following on x
-    // let y_0 = this.initialCameraPos.y;
-    // let z_0 = this.initialCameraPos.z;
-    // let x = this.person.getWorldPosition().x;
-
-    // console.log(this.person.getWorldPosition());
-
-    // this.mainCamera.setPosition(new Vec3(x, y_0, z_0));
   }
 
   plaAnimation(active: boolean) {
@@ -170,12 +149,12 @@ export class playerControl extends Component {
     if (this.walk != active) {
       this.walk = active;
       if (this.walk) {
-        if (!this.isBuy) animation.crossFade(clips[4].name, 0.3);
+        if (!this.isBuy) animation.play(clips[4].name);
         else animation.play(clips[1].name);
       } else {
         // animation.crossFade(clips[1].name, 3);
-        if (!this.isBuy) animation.play(clips[2].name);
-        else animation.play(clips[0].name);
+        if (!this.isBuy) animation.crossFade(clips[2].name, 0.3);
+        else animation.crossFade(clips[0].name, 0.3);
       }
     }
   }
@@ -197,34 +176,48 @@ export class playerControl extends Component {
   }
 
   onKeyDown(event: EventKeyboard) {
-    if (event.keyCode == macro.KEY.w) {
+    if (event.keyCode === macro.KEY.w || event.keyCode === macro.KEY.up) {
       this._key |= EKey.W;
-    } else if (event.keyCode === macro.KEY.s) {
+    } else if (
+      event.keyCode === macro.KEY.s ||
+      event.keyCode === macro.KEY.down
+    ) {
       this._key |= EKey.S;
-    } else if (event.keyCode === macro.KEY.a) {
+    } else if (
+      event.keyCode === macro.KEY.a ||
+      event.keyCode === macro.KEY.left
+    ) {
       this._key |= EKey.A;
-    } else if (event.keyCode === macro.KEY.d) {
+    } else if (
+      event.keyCode === macro.KEY.d ||
+      event.keyCode === macro.KEY.right
+    ) {
       this._key |= EKey.D;
-    } else if (event.keyCode === macro.KEY.shift) {
-      this._key |= EKey.SHIFT;
     }
   }
 
   onKeyUp(event: EventKeyboard) {
-    if (event.keyCode == macro.KEY.w) {
+    if (event.keyCode === macro.KEY.w || event.keyCode === macro.KEY.up) {
       this._key &= ~EKey.W;
       this.plaAnimation(false);
-    } else if (event.keyCode === macro.KEY.s) {
+    } else if (
+      event.keyCode === macro.KEY.s ||
+      event.keyCode === macro.KEY.down
+    ) {
       this._key &= ~EKey.S;
       this.plaAnimation(false);
-    } else if (event.keyCode === macro.KEY.a) {
+    } else if (
+      event.keyCode === macro.KEY.a ||
+      event.keyCode === macro.KEY.left
+    ) {
       this._key &= ~EKey.A;
       this.plaAnimation(false);
-    } else if (event.keyCode === macro.KEY.d) {
+    } else if (
+      event.keyCode === macro.KEY.d ||
+      event.keyCode === macro.KEY.right
+    ) {
       this._key &= ~EKey.D;
       this.plaAnimation(false);
-    } else if (event.keyCode === macro.KEY.shift) {
-      this._key &= ~EKey.SHIFT;
     }
   }
 

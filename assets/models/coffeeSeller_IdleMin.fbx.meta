@@ -1,0 +1,133 @@
+{
+  "ver": "1.3.21",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "e113a700-a300-42bc-ae6f-132157156f7f",
+  "files": [],
+  "subMetas": {
+    "381e1": {
+      "importer": "gltf-mesh",
+      "uuid": "e113a700-a300-42bc-ae6f-132157156f7f@381e1",
+      "displayName": "",
+      "id": "381e1",
+      "name": "Ch03.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "bef90": {
+      "importer": "gltf-animation",
+      "uuid": "e113a700-a300-42bc-ae6f-132157156f7f@bef90",
+      "displayName": "",
+      "id": "bef90",
+      "name": "Armature|Idle.animation",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 16.625
+        },
+        "events": []
+      }
+    },
+    "438fe": {
+      "importer": "gltf-skeleton",
+      "uuid": "e113a700-a300-42bc-ae6f-132157156f7f@438fe",
+      "displayName": "",
+      "id": "438fe",
+      "name": "UnnamedSkeleton.skeleton",
+      "ver": "1.0.1",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0,
+        "jointsLength": 78
+      }
+    },
+    "ea6e2": {
+      "importer": "gltf-material",
+      "uuid": "e113a700-a300-42bc-ae6f-132157156f7f@ea6e2",
+      "displayName": "",
+      "id": "ea6e2",
+      "name": "DefaultMaterial.material",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "21ce0": {
+      "importer": "gltf-scene",
+      "uuid": "e113a700-a300-42bc-ae6f-132157156f7f@21ce0",
+      "displayName": "",
+      "id": "21ce0",
+      "name": "coffeeSeller_IdleMin.prefab",
+      "ver": "1.0.11",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "animationImportSettings": [
+      {
+        "name": "Armature|Idle",
+        "duration": 16.625,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Armature|Idle",
+            "from": 0,
+            "to": 16.625,
+            "wrapMode": 2
+          }
+        ]
+      }
+    ],
+    "redirect": "e113a700-a300-42bc-ae6f-132157156f7f@21ce0",
+    "assetFinder": {
+      "meshes": [
+        "e113a700-a300-42bc-ae6f-132157156f7f@381e1"
+      ],
+      "skeletons": [
+        "e113a700-a300-42bc-ae6f-132157156f7f@438fe"
+      ],
+      "textures": [],
+      "materials": [
+        "e113a700-a300-42bc-ae6f-132157156f7f@ea6e2"
+      ],
+      "scenes": [
+        "e113a700-a300-42bc-ae6f-132157156f7f@21ce0"
+      ]
+    }
+  }
+}

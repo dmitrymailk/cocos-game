@@ -1,0 +1,40 @@
+{
+  "ver": "1.0.18",
+  "importer": "image",
+  "imported": true,
+  "uuid": "2cd80bcc-964f-4c6e-bd3b-699a203f4cd1",
+  "files": [
+    ".png",
+    ".json"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "2cd80bcc-964f-4c6e-bd3b-699a203f4cd1@6c48a",
+      "displayName": "grl_ttr2-min",
+      "id": "6c48a",
+      "name": "texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "2cd80bcc-964f-4c6e-bd3b-699a203f4cd1"
+      }
+    }
+  },
+  "userData": {
+    "type": "texture",
+    "redirect": "2cd80bcc-964f-4c6e-bd3b-699a203f4cd1@6c48a"
+  }
+}

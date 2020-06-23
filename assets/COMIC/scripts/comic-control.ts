@@ -5,6 +5,10 @@ import {
   AnimationComponent,
   AnimationClip,
   director,
+  systemEvent,
+  SystemEventType,
+  EventKeyboard,
+  macro,
 } from "cc";
 
 import store from "../../store/index";
@@ -57,7 +61,10 @@ export class ComicControl extends Component {
         let animation = sprite.getComponent(AnimationComponent);
         let clips = animation.clips;
         animation.play(clips[2].name);
-        director.loadScene("cafe");
+        // @ts-ignore
+        animation.on("finished", () => {
+          director.loadScene("cafe");
+        });
         // @ts-ignore
         store.isWatched = true;
       }
@@ -93,6 +100,21 @@ export class ComicControl extends Component {
 
   setSlideById(id: number) {
     for (let i = 1; i < id; i++) {
+      this.nextSlide();
+    }
+  }
+
+  onEnable() {
+    systemEvent.on(SystemEventType.KEY_DOWN, this.onKeyDown, this);
+  }
+
+  onKeyDown(event: EventKeyboard) {
+    if (event.keyCode === macro.KEY.a || event.keyCode === macro.KEY.left) {
+      this.prevSlide();
+    } else if (
+      event.keyCode === macro.KEY.d ||
+      event.keyCode === macro.KEY.right
+    ) {
       this.nextSlide();
     }
   }

@@ -58,6 +58,7 @@ export class AnimationSystem extends Component {
   private isBuy = false;
   private isCoffeeLine = false;
   private isfirstMove = false;
+  private isCupOnTable = false;
 
   start() {
     // @ts-ignore
@@ -69,6 +70,7 @@ export class AnimationSystem extends Component {
     let backToComic = this.backToComic.getComponent(ColliderComponent);
 
     coffeeTrigger.on("onTriggerEnter", this.enterCoffee, this);
+    coffeeTrigger.on("onTriggerStay", this.enterCoffee, this);
     coffeeTrigger.on("onTriggerExit", this.exitCoffee, this);
 
     backToComic.on(
@@ -95,6 +97,7 @@ export class AnimationSystem extends Component {
     //@ts-ignore
     animation.on("finished", () => {
       animation.play(clips[1].name);
+      this.isCupOnTable = true;
     });
 
     this.isCoffeeLine = true;
@@ -109,7 +112,7 @@ export class AnimationSystem extends Component {
   }
 
   enterCoffee() {
-    if (!this.isBuy && this.isCoffeeLine) {
+    if (!this.isBuy && this.isCoffeeLine && this.isCupOnTable) {
       this.isEnterCoffee = true;
       console.log("enter coffee");
       this.coffeButtonUI.active = true;

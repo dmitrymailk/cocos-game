@@ -4,5 +4,6 @@
       "name": "player-body",
       "value": 1
     }
-  ]
+  ],
+  "custom_joint_texture_layouts": []
 }
