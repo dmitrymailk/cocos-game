@@ -25,6 +25,8 @@
   ],
   "_props": [
     {
+      "roughness": 0,
+      "metallic": 0,
       "mainTexture": {
         "__uuid__": "7f4bc6e9-4dfc-43b6-84d0-90cff8d3573f@6c48a"
       }

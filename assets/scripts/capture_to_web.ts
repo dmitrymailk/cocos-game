@@ -15,11 +15,30 @@ export class CaptureToWeb extends Component {
   @property(SpriteComponent)
   sprite: SpriteComponent = null;
   @property(CameraComponent)
-  camera: CameraComponent = null;
+  camera01: CameraComponent = null;
+
+  @property(CameraComponent)
+  camera02: CameraComponent = null;
 
   protected _renderTex: RenderTexture = null;
 
   start() {
+    // this.switchCamera(true);
+  }
+
+  switchCamera(condition: boolean) {
+    console.log("switchCamera");
+    if (condition) {
+      this.camera02.node.active = false;
+      this.setCamera(this.camera01);
+    } else {
+      this.camera01.node.active = false;
+      this.setCamera(this.camera02);
+    }
+  }
+
+  setCamera(camera: CameraComponent) {
+    camera.node.active = true;
     const spriteframe = this.sprite.spriteFrame;
     const sp = new SpriteFrame();
     sp.reset({
@@ -40,7 +59,7 @@ export class CaptureToWeb extends Component {
       colorFormat: RenderTexture.PixelFormat.RGBA8888,
       depthStencilFormat: RenderTexture.DepthStencilFormat.DEPTH_24_STENCIL_8,
     });
-    this.camera.targetTexture = rendetTex;
+    camera.targetTexture = rendetTex;
     sp.texture = rendetTex;
     this.sprite.spriteFrame = sp;
     this.scheduleOnce(() => {

@@ -1,0 +1,73 @@
+{
+  "ver": "1.0.18",
+  "importer": "image",
+  "imported": true,
+  "uuid": "7ae3cf1b-cf83-4879-bdb4-8bdb74637506",
+  "files": [
+    ".png",
+    ".json"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "7ae3cf1b-cf83-4879-bdb4-8bdb74637506@6c48a",
+      "displayName": "stekla",
+      "id": "6c48a",
+      "name": "texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "7ae3cf1b-cf83-4879-bdb4-8bdb74637506"
+      }
+    },
+    "f9941": {
+      "importer": "sprite-frame",
+      "uuid": "7ae3cf1b-cf83-4879-bdb4-8bdb74637506@f9941",
+      "displayName": "stekla",
+      "id": "f9941",
+      "name": "spriteFrame",
+      "ver": "1.0.8",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "trimType": "auto",
+        "trimThreshold": 1,
+        "rotated": false,
+        "offsetX": 0,
+        "offsetY": 128,
+        "trimX": 0,
+        "trimY": 0,
+        "width": 1024,
+        "height": 768,
+        "rawWidth": 1024,
+        "rawHeight": 1024,
+        "borderTop": 0,
+        "borderBottom": 0,
+        "borderLeft": 0,
+        "borderRight": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "7ae3cf1b-cf83-4879-bdb4-8bdb74637506@6c48a",
+        "atlasUuid": ""
+      }
+    }
+  },
+  "userData": {
+    "type": "sprite-frame",
+    "redirect": "7ae3cf1b-cf83-4879-bdb4-8bdb74637506@f9941"
+  }
+}

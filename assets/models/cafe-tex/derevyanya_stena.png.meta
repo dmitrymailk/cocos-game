@@ -1,0 +1,40 @@
+{
+  "ver": "1.0.18",
+  "importer": "image",
+  "imported": true,
+  "uuid": "ead5c379-f7ba-43ec-b351-3bfa81dd3adc",
+  "files": [
+    ".png",
+    ".json"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "ead5c379-f7ba-43ec-b351-3bfa81dd3adc@6c48a",
+      "displayName": "derevyanya_stena",
+      "id": "6c48a",
+      "name": "texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "ead5c379-f7ba-43ec-b351-3bfa81dd3adc"
+      }
+    }
+  },
+  "userData": {
+    "type": "texture",
+    "redirect": "ead5c379-f7ba-43ec-b351-3bfa81dd3adc@6c48a"
+  }
+}

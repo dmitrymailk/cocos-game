@@ -10,7 +10,7 @@ import {
 } from "cc";
 const { ccclass, property } = _decorator;
 
-import { dialog } from "../dialogs/dialog_3";
+import { dialog } from "../dialogs/dialogue-cafe-new";
 
 import { CustomButtonComponent } from "./components/CustomButtonComponent";
 
@@ -44,10 +44,15 @@ export class DialogSystem extends Component {
   @property({ type: Node })
   public animationSystem: Node = null;
 
+  @property({ type: Node })
+  public captureToWeb: Node = null;
+
   private currentDialog = null;
   private gameDialogs = dialog;
   private isStart = false;
-  private coffeeGetTrigger = "Сделать заказ";
+  private coffeeGetTrigger01 = "OK. Here is your coffee. That's 50 cents.";
+  private coffeeGetTrigger02 =
+    "I don't know why you are so sad, but maybe it can make your Sunday sunnier.";
 
   @property({ type: Node })
   public triggerBlock: ColliderComponent = null;
@@ -65,6 +70,8 @@ export class DialogSystem extends Component {
 
     // @ts-ignore
     this.animationSystem = this.animationSystem.getComponent("AnimationSystem");
+    // @ts-ignore
+    this.captureToWeb = this.captureToWeb.getComponent("CaptureToWeb");
   }
 
   chooseOption(e: any) {
@@ -72,10 +79,13 @@ export class DialogSystem extends Component {
     console.log(id);
     let dialogBlock = this.getById(id);
     this.currentDialog = dialogBlock;
-    if (dialogBlock.name == this.coffeeGetTrigger) {
-      // @ts-ignore
-      this.animationSystem.showCup();
-    }
+    // if (
+    //   dialogBlock.name == this.coffeeGetTrigger01 ||
+    //   dialogBlock.name == this.coffeeGetTrigger02
+    // ) {
+    //   // @ts-ignore
+    //   this.animationSystem.showCup();
+    // }
     this.nextState();
   }
 
@@ -84,7 +94,37 @@ export class DialogSystem extends Component {
     choice.string = text;
   }
 
+  setCameraByName(name: string) {
+    console.log("setCameraByName");
+
+    name = name.replace(/ /g, "");
+    // @ts-ignore
+    if (name == "girl") {
+      // @ts-ignore
+      this.captureToWeb.switchCamera(true);
+    } else if (name == "salesperson") {
+      // @ts-ignore
+      this.captureToWeb.switchCamera(false);
+    }
+  }
+
   nextState() {
+    if (
+      this.currentDialog.name == this.coffeeGetTrigger01 ||
+      this.currentDialog.name == this.coffeeGetTrigger02
+    ) {
+      // @ts-ignore
+      this.animationSystem.showCup();
+    }
+
+    if (this.currentDialog.actor) {
+      this.setCameraByName(this.currentDialog.actor);
+    }
+
+    if (this.currentDialog.title) {
+      this.setCameraByName(this.currentDialog.title);
+    }
+
     let activeText = this.currentDialog.name || false;
     if (activeText) activeText = true;
     this.textButton.node.active = activeText;
@@ -111,6 +151,15 @@ export class DialogSystem extends Component {
 
       if (block.type == "Text") {
         this.text.string = block.name;
+        console.log(block, block.name);
+
+        if (block.actor) {
+          this.setCameraByName(block.actor);
+        }
+
+        if (block.title) {
+          this.setCameraByName(block.title);
+        }
       }
 
       if (block.next) {
