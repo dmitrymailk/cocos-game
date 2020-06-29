@@ -1,10 +1,10 @@
 export const dialog = [
   {
     type: "Text",
-    id: "520f6800-601e-40ca-b0a1-6f359cf18cb7",
+    id: "asdasd",
     actor: "salesperson",
     name: "Good morning! How can I help you, girl? ",
-    next: "0896ed57-2430-42b4-ac75-95ba421f7c33",
+    next: "520f6800-601e-40ca-b0a1-6f359cf18cb7",
   },
   {
     type: "Text",
