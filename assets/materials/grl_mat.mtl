@@ -4,12 +4,12 @@
   "_objFlags": 0,
   "_native": "",
   "_effectAsset": {
-    "__uuid__": "1baf0fc9-befa-459c-8bdd-af1a450a0319"
+    "__uuid__": "a3cd009f-0ab0-420d-9278-b9fdab939bbc"
   },
   "_techIdx": 0,
   "_defines": [
     {
-      "USE_ALBEDO_MAP": true
+      "USE_TEXTURE": true
     }
   ],
   "_states": [
@@ -25,8 +25,6 @@
   ],
   "_props": [
     {
-      "roughness": 0,
-      "metallic": 0,
       "mainTexture": {
         "__uuid__": "2cd80bcc-964f-4c6e-bd3b-699a203f4cd1@6c48a"
       }

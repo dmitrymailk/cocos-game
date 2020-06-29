@@ -1,0 +1,91 @@
+struct Ray {
+vec3 ori;
+vec3 dir;
+};
+struct RaycastHit {
+vec3 p;
+vec3 n;
+int id;
+};
+
+RaycastHit intersectSphere(vec3 position, float radius, const Ray ray) {
+    
+	float a = dot(ray.dir, ray.dir);
+    float b = 2. * dot(ray.dir, ray.ori - position);
+    float c = dot(ray.ori - position, ray.ori - position) -(radius * radius);
+    float det = (b * b) - 4. * a * c;
+
+	float lambda = (-b -sqrt(det)) / (2. * a);
+	vec3 p = ray.ori + lambda * ray.dir;
+	vec3 n = p - position;
+    
+    return RaycastHit(p,normalize(n),(det >= 0. && lambda >= 0.) ? 0 : -1);
+        
+}
+
+RaycastHit intersectScene(Ray ray) {
+ 
+    RaycastHit hit = RaycastHit(vec3(1./0.),vec3(0.),-1);
+    
+    for(int i = 0; i < 4; i++) {
+     
+        vec3 p = vec3(-.9 + float(i)*1.05,0.,float(i)/1.5);
+        RaycastHit sph = intersectSphere(p, .6, ray);
+        
+        if(distance(sph.p, ray.ori) < distance(hit.p, ray.ori)) {
+         
+            hit = sph;
+            
+        }
+        
+    }
+    
+    return hit;
+    
+}
+
+vec3 shade(Ray ray) {
+ 
+    RaycastHit scene = intersectScene(ray);
+    
+    if(scene.id == 0) {
+     
+        vec2 uv = scene.n.xy;
+        uv = asin(uv) / 3.14159 * .5;
+        
+        vec3 sun = normalize(vec3(45.,50.,-46.));
+        float diff = .2 + max(dot(sun,scene.n), 0.);
+        
+        vec3 rd = normalize(reflect(ray.dir, scene.n));
+        float spec = pow(max(dot(rd,sun), 0.), 15.);
+        
+        return texture(mainTexture, uv).xyz * diff + spec;
+        
+    }
+    
+    return mix(vec3(.2,.2,.8),vec3(.6,.6,.8),pow(ray.dir.y + .5,.7));
+    
+}
+
+void mainImage( out vec4 fragColor, in vec2 fragCoord )
+{
+	vec2 uv = (fragCoord.xy - iResolution.xy / 2.) / iResolution.y;
+    
+    vec3 ori = vec3(0.,0.,-2.);
+    vec3 dir = vec3(uv, 1.);
+    
+    const int iter = 16;
+    vec3 result = vec3(0.);
+    
+    for(int i = 0; i < iter; i++) {
+     
+        // Thnx mu6k!
+        float fi = float(i)/float(iter)*2.*355.0/113.0;
+        vec2 nn = vec2(cos(float(fi)), sin(float(fi)));
+        vec3 offs = vec3(nn.x,nn.y, .0)*.03;
+        result += shade(Ray(ori-offs*2.2,dir+offs));
+        
+    }
+    
+    fragColor = vec4(result / float(iter),1.);
+}

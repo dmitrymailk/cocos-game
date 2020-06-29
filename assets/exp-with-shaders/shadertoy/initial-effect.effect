@@ -1,0 +1,86 @@
+// Effect Syntax Guide: https://github.com/cocos-creator/docs-3d/blob/master/zh/material-system/effect-syntax.md
+
+CCEffect %{
+  techniques:
+  - name: SHADER-EFFECT
+    passes:
+    - vert: toy-vs:vert # builtin header
+      frag: unlit-fs:frag
+      properties: &props
+        mainTexture:    { value: white }
+        mainTexture_2:    { value: white }
+        mainColor:      { value: [1, 1, 1, 1], editor: { type: color } }
+        some_num_1: {value: 0.5}
+        some_num_2: {value: 3.5}
+        some_num_3: {value: 0.5}
+        some_num_4: {value: 0.5}
+}%
+
+CCProgram toy-vs %{
+  precision mediump float;
+  #include <cc-global>
+  #include <cc-local>
+  #include <input>
+
+  in vec2 a_texCoord;
+  out vec2 v_uv;
+
+  highp vec4 vert () {
+    highp vec4 position;
+    CCVertInput(position);
+    v_uv = vec2(a_texCoord.x, 1.0 - a_texCoord.y);
+    return cc_matViewProj * cc_matWorld * position;
+  }
+}%
+
+CCProgram unlit-fs %{
+  precision mediump float;
+  #include <output>
+
+  in vec2 v_uv;
+
+  uniform sampler2D mainTexture;
+  uniform sampler2D mainTexture_2;
+  uniform Constant {
+    vec4 mainColor;
+    float some_num_1;
+    float some_num_2;
+    float some_num_3;
+    float some_num_4;
+  };
+
+  #include <cc-global>
+  #include <output>
+  
+
+  #define iResolution cc_screenSize
+  #define iTime cc_time.x
+  #define iTimeDelta cc_time.y
+  #define iFrame cc_time.z
+  #define iMouse vec4(0.2, 0.2, 0.2, 1)
+  // #define iChannel0 mainTexture
+
+  #include "glass"
+  // #include "silexars"
+  // #include "depthOfField"
+
+
+  vec4 frag () {
+    vec4 o;// = vec4(1, 1, 1, 1);
+    mainImage(o, v_uv * cc_screenSize.xy); // simulate fragCoord with mesh uv
+
+    return CCFragOutput(o);
+    // vec3 color = vec3(0.0);
+
+    // float pct = abs(sin(iTime));
+
+    // // Mix uses pct (a value from 0-1) to
+    // // mix the two colors
+    // color = mix(colorA, colorB, pct);
+
+    // vec4 o = vec4(color, 1.0);
+    // return CCFragOutput(o);
+
+  }
+}%
+

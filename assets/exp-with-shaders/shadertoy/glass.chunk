@@ -1,0 +1,16 @@
+void mainImage (out vec4 fragColor, in vec2 fragCoord) {
+  // Normalized pixel coordinates (from 0 to 1)
+  vec2 p = fragCoord.xy/iResolution.xy - 0.5;
+
+  float r = length(p);
+  float a = atan(p.y, p.x);
+
+  r = r*r*10.0; // bulge
+  
+  // polar to cartesian coordinates
+  p = r * vec2(cos(a)*0.9, sin(a)*0.9);
+
+  // Time varying pixel color
+  vec4 color = texture(mainTexture, p + 0.5);
+  fragColor = color;
+}

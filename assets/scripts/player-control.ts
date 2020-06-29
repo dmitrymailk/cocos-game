@@ -20,7 +20,7 @@ import {
 } from "cc";
 const { ccclass, property, menu } = _decorator;
 
-const v3_0 = new math.Vec3();
+let v3_0 = new Vec3();
 const v2_0 = new math.Vec2();
 
 enum EKey {
@@ -33,8 +33,8 @@ enum EKey {
 
 @ccclass("playerControl")
 export class playerControl extends Component {
-  @property({ slide: true, range: [1, 3, 0.01] })
-  public readonly shiftScale = 2;
+  @property({ type: CCFloat })
+  public shiftScale = 2;
 
   private _rigidBody: RigidBodyComponent = null;
 
@@ -62,10 +62,11 @@ export class playerControl extends Component {
   public maxSpeed: number = 6;
 
   @property({ type: CCFloat })
-  public restrictionNum: number = -0.1;
+  public smooth: number = 0.125;
 
   public canMove = true;
   public isBuy = false;
+  private offset = new Vec3();
 
   start() {
     this._rigidBody = this.getComponent(RigidBodyComponent);
@@ -75,70 +76,68 @@ export class playerControl extends Component {
     let clips = animation.clips;
 
     animation.play(clips[2].name);
+
+    let o = new Vec3();
+    math.Vec3.subtract(
+      o,
+      this.mainCamera.getWorldPosition(),
+      this.person.getWorldPosition()
+    );
+    this.offset = o;
   }
 
   update(dt: number) {
     if (this.canMove) {
+      let position = this.node.getPosition();
+      let isMoving = false;
+
       if (this._key & EKey.W) {
-        v3_0.z = -1;
+        isMoving = true;
+
+        math.Vec3.scaleAndAdd(
+          position,
+          position,
+          new Vec3(0, 0, -1),
+          dt * this.scale
+        );
       }
       if (this._key & EKey.S) {
-        v3_0.z = 1;
+        isMoving = true;
+        math.Vec3.scaleAndAdd(
+          position,
+          position,
+          new Vec3(0, 0, -1),
+          -dt * this.scale
+        );
       }
       if (this._key & EKey.A) {
-        v3_0.x = -1;
+        isMoving = true;
+        math.Vec3.scaleAndAdd(
+          position,
+          position,
+          new Vec3(1, 0, 0),
+          -dt * this.scale
+        );
       }
       if (this._key & EKey.D) {
-        v3_0.x = 1;
-      }
+        isMoving = true;
 
-      if (v3_0.z != 0 || v3_0.x != 0) {
-        v3_0.multiplyScalar(this.shiftScale);
-        let velocity = new Vec3();
-        this._rigidBody.getLinearVelocity(velocity);
-        let { x, y, z } = velocity;
-
-        if (
-          Math.abs(x) < this.maxSpeed &&
-          Math.abs(y) < this.maxSpeed &&
-          Math.abs(z) < this.maxSpeed
-        ) {
-          this._rigidBody.applyImpulse(v3_0);
-          this.plaAnimation(true);
-          v3_0.set(0, 0, 0);
-        } else {
-          this._rigidBody.applyImpulse(v3_0);
-          v3_0.multiplyScalar(this.restrictionNum);
-          this._rigidBody.applyImpulse(v3_0);
-          this.plaAnimation(true);
-        }
-      }
-
-      if (this._rigidBody.isAwake) {
-        let per_0 = this.person.getWorldPosition();
-        let per_1 = this.prevPos;
-        let targetAngle =
-          (Math.atan2(per_0.x - per_1.x, per_0.z - per_1.z) * 180) / Math.PI;
-
-        let quat: Quat = new Quat();
-        math.Quat.fromEuler(quat, 0, targetAngle, 0);
-        let userRot = new Quat();
-        math.Quat.slerp(
-          userRot,
-          this.person.getRotation(),
-          quat,
-          dt * +this.smoothRot
+        math.Vec3.scaleAndAdd(
+          position,
+          position,
+          new Vec3(1, 0, 0),
+          dt * this.scale
         );
-
-        let eurlerRot = new Vec3();
-        math.Quat.toEuler(eurlerRot, userRot);
-
-        this.person.eulerAngles = eurlerRot;
-
-        // this.person.eulerAngles = new Vec3(0, targetAngle, 0); // easy way to rotate
-
-        this.prevPos.set(per_0);
       }
+
+      if (isMoving) {
+        this.plaAnimation(true);
+        this.node.setPosition(position);
+        this.playerRotate(dt);
+        v3_0.set(0, 0, 0);
+      }
+
+      this.cameraSmooth(dt);
     }
   }
 
@@ -157,6 +156,46 @@ export class playerControl extends Component {
         else animation.crossFade(clips[0].name, 0.3);
       }
     }
+  }
+
+  playerRotate(dt) {
+    let per_0 = this.person.getWorldPosition();
+    let per_1 = this.prevPos;
+    let targetAngle =
+      (Math.atan2(per_0.x - per_1.x, per_0.z - per_1.z) * 180) / Math.PI;
+
+    let quat: Quat = new Quat();
+    math.Quat.fromEuler(quat, 0, targetAngle, 0);
+    let userRot = new Quat();
+    math.Quat.slerp(
+      userRot,
+      this.person.getRotation(),
+      quat,
+      dt * +this.smoothRot
+    );
+
+    let eurlerRot = new Vec3();
+    math.Quat.toEuler(eurlerRot, userRot);
+
+    this.person.eulerAngles = eurlerRot;
+
+    // this.person.eulerAngles = new Vec3(0, targetAngle, 0); // easy way to rotate
+
+    this.prevPos.set(per_0);
+  }
+
+  cameraSmooth(dt) {
+    // make smooth camera following
+    let desiredPosition = new Vec3();
+    math.Vec3.add(desiredPosition, this.offset, this.person.getWorldPosition());
+    let smoothedPosition = new Vec3();
+    math.Vec3.lerp(
+      smoothedPosition,
+      this.mainCamera.getWorldPosition(),
+      desiredPosition,
+      this.smooth * dt
+    );
+    this.mainCamera.setWorldPosition(smoothedPosition);
   }
 
   onEnable() {
