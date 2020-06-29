@@ -1,0 +1,40 @@
+{
+  "ver": "1.0.18",
+  "importer": "image",
+  "imported": true,
+  "uuid": "dfee4d9b-31f5-4778-ab59-1f44d3a2e27b",
+  "files": [
+    ".jpg",
+    ".json"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "dfee4d9b-31f5-4778-ab59-1f44d3a2e27b@6c48a",
+      "displayName": "city_1",
+      "id": "6c48a",
+      "name": "texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "dfee4d9b-31f5-4778-ab59-1f44d3a2e27b"
+      }
+    }
+  },
+  "userData": {
+    "type": "texture",
+    "redirect": "dfee4d9b-31f5-4778-ab59-1f44d3a2e27b@6c48a"
+  }
+}

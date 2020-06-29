@@ -6,7 +6,7 @@
   "_effectAsset": {
     "__uuid__": "a3cd009f-0ab0-420d-9278-b9fdab939bbc"
   },
-  "_techIdx": 1,
+  "_techIdx": 0,
   "_defines": [
     {
       "USE_TEXTURE": true
@@ -26,16 +26,15 @@
   "_props": [
     {
       "mainTexture": {
-        "__uuid__": "7ae3cf1b-cf83-4879-bdb4-8bdb74637506@6c48a"
+        "__uuid__": "374ff97f-1626-460f-9504-75059ba4c731@6c48a"
       },
       "mainColor": {
         "__type__": "cc.Color",
-        "r": 255,
-        "g": 255,
-        "b": 255,
-        "a": 188
-      },
-      "alphaThreshold": 0.2
+        "r": 73,
+        "g": 72,
+        "b": 55,
+        "a": 255
+      }
     }
   ]
 }
